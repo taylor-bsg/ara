@@ -560,8 +560,8 @@ module vmfpu import ara_pkg::*; import rvv_pkg::*; import fpnew_pkg::*; #(
 
   // If vs2 and vd were swapped, re-route the handshake signals to/from the operand queues
   assign operands_valid = vinsn_issue_q.swap_vs2_vd_op
-                        ? ((mfpu_operand_valid_i[2] || !vinsn_issue_q.use_vs2)   && (mfpu_operand_valid_i[1] || !vinsn_issue_q.use_vd_op) && (mfpu_operand_valid_i[0]  || !vinsn_issue_q.use_vs1) && (mask_valid_i || vinsn_issue_q.vm || vinsn_issue_q.vfu == VFU_MaskUnit))
-                        : ((mfpu_operand_valid_i[2] || !vinsn_issue_q.use_vd_op) && (mfpu_operand_valid_i[1] || !vinsn_issue_q.use_vs2)   && (mmfpu_operand_valid_i[0] || !vinsn_issue_q.use_vs1) && (mask_valid_i || vinsn_issue_q.vm || vinsn_issue_q.vfu == VFU_MaskUnit));
+                        ? ((mfpu_operand_valid_i[2] || !vinsn_issue_q.use_vs2)   && (mfpu_operand_valid_i[1] || !vinsn_issue_q.use_vd_op) && (mfpu_operand_valid_i[0] || !vinsn_issue_q.use_vs1) && (mask_valid_i || vinsn_issue_q.vm))
+                        : ((mfpu_operand_valid_i[2] || !vinsn_issue_q.use_vd_op) && (mfpu_operand_valid_i[1] || !vinsn_issue_q.use_vs2)   && (mfpu_operand_valid_i[0] || !vinsn_issue_q.use_vs1) && (mask_valid_i || vinsn_issue_q.vm));
 
   assign operands_ready = vinsn_issue_q.swap_vs2_vd_op
                         ? {vinsn_issue_q.use_vs2, vinsn_issue_q.use_vd_op, vinsn_issue_q.use_vs1}
