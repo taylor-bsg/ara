@@ -78,6 +78,8 @@ package ara_pkg;
     VMSEQ, VMSNE, VMSLTU, VMSLT, VMSLEU, VMSLE, VMSGTU, VMSGT,
     // Integer add-with-carry and subtract-with-borrow carry-out instructions
     VMADC, VMSBC,
+    // Floating-point comparison instructions
+    VMFEQ,
     // Load instructions
     VLE, VLSE, VLXE,
     // Store instructions
