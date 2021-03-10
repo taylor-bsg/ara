@@ -433,6 +433,15 @@ package ara_pkg;
   endfunction: deshuffle_index
 
   /**********************
+  *  MASKU definitions  *
+  **********************/
+
+  // Which FU should process the mask unit request?
+  typedef enum logic {
+    MaskFUAlu, MaskFUMFpu
+  } masku_fu_e;
+
+  /**********************
    *  Lane definitions  *
    **********************/
 
