@@ -38,6 +38,7 @@ This file specifies the functionalities of the RISC-V Vector Specification suppo
 - Vector single-width floating-point fused multiply-add instructions: `vfmacc`, `vfnmacc`, `vfmsac`, `vfnmsac`, `vfmadd`, `vfnmadd`, `vfmsub`, `vfnmsub`
 - Vector floating-point min/max instructions: `vfmin`, `vfmax`
 - Vector floating-point sign-injection instructions: `vfsgnj`, `vfsgnjn`, `vfsgnjx`
+- Vector floating-point compare instructions: `vmfeq`, `vmfne`, `vmflt`, `vmfle`, `vmfgt`, `vmfge`
 
 ## Vector mask instructions
 
