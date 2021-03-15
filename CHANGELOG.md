@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Hardware support for:
   - Vector single-width floating-point fused multiply-add instructions (vfnmacc, vfmsac, vfnmsac, vfnmadd, vfmsub, vfnmsub)
   - Vector floating-point sign-injection instructions (vfsgnj, vfsgnjn, vfsgnjx)
+  - Vector floating-point compare instructions (vmfeq, vmfne, vmflt, vmfle, vmfgt, vmfge)
 
 ## 1.0.0 - 2020-03-10
 
