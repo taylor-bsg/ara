@@ -75,6 +75,7 @@ rv64uv_sc_tests = vadd \
                   vfsgnjn \
                   vfsgnjx \
                   vmfeq \
+                  vmfne \
                   vmerge \
                   vmv \
                   vmand \
