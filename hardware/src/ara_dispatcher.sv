@@ -1893,37 +1893,37 @@ module ara_dispatcher import ara_pkg::*; import rvv_pkg::*; #(
                 // Ara cannot support instructions who operates on more than 64 bits.
                 unique case (FPUSupport)
                   FPUSupportHalfSingleDouble: begin
-                    if (int'(ara_req_d.vtype.vsew) < int'(EW16) || int'(ara_req_d.vtype.vsew) > int'(EW64)) begin
+                    if (int'(ara_req_d.vtype.vsew) < int'(EW16) || int'(ara_req_d.vtype.vsew) > int'(EW64) ||  int'(ara_req_d.eew_vs2) > int'(EW64)) begin
                       acc_resp_o.error = 1'b1;
                       ara_req_valid_d  = 1'b0;
                     end
                   end
                   FPUSupportHalfSingle: begin
-                    if (int'(ara_req_d.vtype.vsew) < int'(EW16) || int'(ara_req_d.vtype.vsew) > int'(EW32)) begin
+                    if (int'(ara_req_d.vtype.vsew) < int'(EW16) || int'(ara_req_d.vtype.vsew) > int'(EW32) ||  int'(ara_req_d.eew_vs2) > int'(EW32)) begin
                       acc_resp_o.error = 1'b1;
                       ara_req_valid_d  = 1'b0;
                     end
                   end
                   FPUSupportSingleDouble: begin
-                    if (int'(ara_req_d.vtype.vsew) < int'(EW32) || int'(ara_req_d.vtype.vsew) > int'(EW64)) begin
+                    if (int'(ara_req_d.vtype.vsew) < int'(EW32) || int'(ara_req_d.vtype.vsew) > int'(EW64) ||  int'(ara_req_d.eew_vs2) > int'(EW64)) begin
                       acc_resp_o.error = 1'b1;
                       ara_req_valid_d  = 1'b0;
                     end
                   end
                   FPUSupportHalf: begin
-                    if (int'(ara_req_d.vtype.vsew) != int'(EW16)) begin
+                    if (int'(ara_req_d.vtype.vsew) != int'(EW16) ||  int'(ara_req_d.eew_vs2) > int'(EW16)) begin
                       acc_resp_o.error = 1'b1;
                       ara_req_valid_d  = 1'b0;
                     end
                   end
                   FPUSupportSingle: begin
-                    if (int'(ara_req_d.vtype.vsew) != int'(EW32)) begin
+                    if (int'(ara_req_d.vtype.vsew) != int'(EW32) ||  int'(ara_req_d.eew_vs2) > int'(EW32)) begin
                       acc_resp_o.error = 1'b1;
                       ara_req_valid_d  = 1'b0;
                     end
                   end
                   FPUSupportDouble: begin
-                    if (int'(ara_req_d.vtype.vsew) != int'(EW64)) begin
+                    if (int'(ara_req_d.vtype.vsew) != int'(EW64) ||  int'(ara_req_d.eew_vs2) > int'(EW64)) begin
                       acc_resp_o.error = 1'b1;
                       ara_req_valid_d  = 1'b0;
                     end
