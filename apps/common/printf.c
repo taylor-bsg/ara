@@ -313,9 +313,9 @@ static size_t _ftoa(out_fct_type out, char *buffer, size_t idx, size_t maxlen,
   const double thres_max = (double)0x7FFFFFFF;
 
   // powers of 10
-  static const double pow10[] = {1,         10,        100,     1000,
-                                 10000,     100000,    1000000, 10000000,
-                                 100000000, 1000000000};
+  static const double pow10[] = { 1,         10,        100,     1000,
+                                  10000,     100000,    1000000, 10000000,
+                                  100000000, 1000000000 };
 
   // test for NaN
   if (value != value) {
@@ -688,7 +688,7 @@ static int _vsnprintf(out_fct_type out, char *buffer, const size_t maxlen,
 
     case 's': {
       const char *p = va_arg(va, char *);
-      unsigned int l = _strnlen_s(p, precision ? precision : (size_t)-1);
+      unsigned int l = _strnlen_s(p, precision ? precision : (size_t) - 1);
       // pre padding
       if (flags & FLAGS_PRECISION) {
         l = (l < precision ? l : precision);
@@ -758,7 +758,7 @@ int printf_(const char *format, ...) {
   va_list va;
   va_start(va, format);
   char buffer[1];
-  const int ret = _vsnprintf(_out_char, buffer, (size_t)-1, format, va);
+  const int ret = _vsnprintf(_out_char, buffer, (size_t) - 1, format, va);
   va_end(va);
   return ret;
 }
@@ -766,7 +766,7 @@ int printf_(const char *format, ...) {
 int sprintf_(char *buffer, const char *format, ...) {
   va_list va;
   va_start(va, format);
-  const int ret = _vsnprintf(_out_buffer, buffer, (size_t)-1, format, va);
+  const int ret = _vsnprintf(_out_buffer, buffer, (size_t) - 1, format, va);
   va_end(va);
   return ret;
 }
@@ -787,9 +787,9 @@ int fctprintf(void (*out)(char character, void *arg), void *arg,
               const char *format, ...) {
   va_list va;
   va_start(va, format);
-  const out_fct_wrap_type out_fct_wrap = {out, arg};
-  const int ret = _vsnprintf(_out_fct, (char *)(uintptr_t)&out_fct_wrap,
-                             (size_t)-1, format, va);
+  const out_fct_wrap_type out_fct_wrap = { out, arg };
+  const int ret = _vsnprintf(_out_fct, (char *)(uintptr_t) & out_fct_wrap,
+                             (size_t) - 1, format, va);
   va_end(va);
   return ret;
 }

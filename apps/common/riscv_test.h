@@ -49,7 +49,7 @@ ret
   csrwi fcsr, 0
 
 #define RVTEST_VECTOR_ENABLE                                                   \
-  li a0, (MSTATUS_VS & (MSTATUS_VS >> 1)) | (MSTATUS_FS & (MSTATUS_FS >> 1));  \
+  li a0, (MSTATUS_VS &(MSTATUS_VS >> 1)) | (MSTATUS_FS &(MSTATUS_FS >> 1));    \
   csrs mstatus, a0;                                                            \
   csrwi fcsr, 0;                                                               \
   csrwi vcsr, 0;
