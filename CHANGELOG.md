@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Format source files in the `apps` folder with clang-format by running `make format`
+
 ### Fixed
 
 - Arithmetic and memory vector instructions with `vl == 0` are considered as a `NOP`
